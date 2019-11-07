@@ -22,10 +22,10 @@ namespace devTest.Distributed.Controllers
         {
             var tiles = new List<Tile>
                 {
-                    new Tile() { Name = "Login Forms", Url = "#/LoginForms" },
-                    new Tile() { Name = "Forms", Url = "#/Forms" },
-                    new Tile() { Name = "Tables", Url = "#/Tables" },
-                    new Tile() { Name = "Modals", Url = "#/Modals" }
+                    new Tile() { Name = "Login Forms", Url = "login", Description = "See a collection of different Login Forms, using bootstrap 4.0.0." },
+                    new Tile() { Name = "Forms - CRUD", Url = "Forms", Description = "See an example of Users CRUD with a Create, Edit and Delete page, using bootrstrap 4.0.0." },
+                    new Tile() { Name = "Tables", Url = "Tables", Description = "See various examples of tables to map the app users." },
+                    new Tile() { Name = "Bootstrap Components", Url = "Bootstrap", Description = "See a list of interesting Bootstrap components, with code examples." }
                 };
 
             var response = this.Request.CreateResponse(HttpStatusCode.OK, tiles);
@@ -37,6 +37,7 @@ namespace devTest.Distributed.Controllers
         {
             public string Name { get; set; }
             public string Url { get; set; }
+            public string Description { get; set; }
         }
     }
 }

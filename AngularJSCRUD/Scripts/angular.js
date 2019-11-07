@@ -60,10 +60,16 @@ function minErr(module, ErrorConstructor) {
     message += '\nhttp://errors.angularjs.org/1.4.8/' +
       (module ? module + '/' : '') + code;
 
-    for (i = SKIP_INDEXES, paramPrefix = '?'; i < templateArgs.length; i++, paramPrefix = '&') {
-      message += paramPrefix + 'p' + (i - SKIP_INDEXES) + '=' +
-        encodeURIComponent(toDebugString(templateArgs[i]));
-    }
+    //for (i = SKIP_INDEXES, paramPrefix = '?'; i < templateArgs.length; i++, paramPrefix = '&') {
+    //  message += paramPrefix + 'p' + (i - SKIP_INDEXES) + '=' +
+    //    encodeURIComponent(toDebugString(templateArgs[i]));
+    //}
+
+      if (minErrConfig.urlErrorParamsEnabled) {
+          for (i = 0, paramPrefix = '?'; i < templateArgs.length; i++ , paramPrefix = '&') {
+              message += paramPrefix + 'p' + i + '=' + encodeURIComponent(templateArgs[i]);
+          }
+      }
 
     return new ErrorConstructor(message);
   };

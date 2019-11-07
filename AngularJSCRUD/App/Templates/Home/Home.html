@@ -1,10 +1,14 @@
-﻿<div class="row">
-    <div class="col-sm-3" ng-repeat="tile in tiles">
+﻿<a href="#/home">Home</a>
+
+<div class="row tile-container">
+    <div class="col-sm-6 tile" ng-repeat="tile in tiles">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{tile.Name}}</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="{{tile.Url}}" class="btn btn-primary">Go somewhere</a>
+                <p class="card-text">{{tile.Description}}</p>
+                <div>
+                    <a style="margin-left: 0% !important" href="#/{{tile.Url}}" class="btn btn-primary">{{tile.Name}}</a>
+                </div>
             </div>
         </div>
     </div>

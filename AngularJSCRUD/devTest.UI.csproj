@@ -115,8 +115,10 @@
   <ItemGroup>
     <Content Include="App\App.js" />
     <Content Include="App\Controllers\Hotel\hotelsController.js" />
+    <Content Include="App\Controllers\LoginForms\loginFormsController.js" />
     <Content Include="App\Services\hotelsService.js" />
     <Content Include="App\Templates\Home\Home.html" />
+    <Content Include="App\Templates\LoginForms\LoginForms.html" />
     <Content Include="App\Templates\Users\Create.html" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
@@ -145,13 +147,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\Controllers\Home\HomeController.js" />
+    <Content Include="App\Controllers\Home\homeController.js" />
     <Content Include="App\Services\HomeService.js" />
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LoginFormsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
