@@ -1,0 +1,3 @@
+1.- You need to start devTest.UI and devTest.Distributed to be able to execute the solution.
+
+2. I implemented a Cache with 60min of duration

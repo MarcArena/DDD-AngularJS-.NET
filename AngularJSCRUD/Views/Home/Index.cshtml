@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2>WEBBEDS DEVELOPER TEST</h2>
+<div id="content" ng-controller="HotelsController">
+    <div class="row">
+        <div class="col-lg-6 text-center">
+            <table class="table" style="width: 100%; margin-top: 2%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                <input id="destinationId" type="text" class="form-control" name="destinationId" placeholder="Adults" ng-model="destinationId" readonly>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                <input id="destinationId" type="number" class="form-control" name="destinationId" placeholder="Adults" ng-model="numberOfNights" min="1" max="99">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <button type="button" class="btn btn-success" ng-click="refresh()" style="margin-left: 0px !important">
+                                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Refresh
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6 text-center">
+            <table class="table table-bordered" style="width: 100%; margin-top: 2%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Try</th>
+                        <th scope="col" class="text-center">Time</th>
+                        <th scope="col" class="text-center">Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="try in tries">
+                        <td>{{try.number}}</td>
+                        <td>{{try.timeTaken}}</td>
+                        <td>{{try.message}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row" ng-show="loading">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 text-center">
+            <img src="https://tradinglatam.com/wp-content/uploads/2019/04/loading-gif-png-4.gif" />
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+    <br />
+    <table class="table form-search table-striped table-condensed table-hover table-bordered" ng-repeat="h in Hotels" ng-show="!loading">
+        <caption></caption>
+        <thead>
+            <tr>
+                <td class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-4 text-center"><b>HotelName</b></div>
+                        <div class="col-lg-4 text-center"><b>PropertyId</b></div>
+                        <div class="col-lg-4 text-center"><b>GeoId</b></div>
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tr>
+            <td class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-4 text-center">{{h.name}}</div>
+                    <div class="col-lg-4 text-center">{{h.propertyId}}</div>
+                    <div class="col-lg-4 text-center">{{h.geoId}}</div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="col-lg-1 text-center"></div>
+                    <div class="col-lg-10 text-center">
+                        <table class="table table-bordered" style="width: 100%; margin-top: 2%">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">boardType</th>
+                                    <th scope="col" class="text-center">rateType</th>
+                                    <th scope="col" class="text-center">finalPrice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="r in h.rates">
+                                    <td>{{r.boardType}}</td>
+                                    <td>{{r.rateType}}</td>
+                                    <td>{{r.finalPrice | number : 2}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-1 text-center"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+@section JavaScript{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+
+    <script src="~/App/App.js"></script>
+
+    <script src="~/App/Controllers/Hotel/hotelsController.js"></script>
+    <script src="~/App/Controllers/Home/HomeController.js"></script>
+
+
+    <script src="~/App/Services/hotelsService.js"></script>
+}
