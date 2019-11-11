@@ -16,7 +16,7 @@ textarea {
     max-width: 280px;
 }
 
-.placeHolderTemplate {   
+.placeHolderTemplate {
     margin: 1%;
 }
 
@@ -24,7 +24,20 @@ textarea {
     margin: 5% 10% 5% 10% !important;
 }
 
+.btn {
+    margin: 0% !important;
+}
+
 .tile {
     margin-top: 1%;
 }
 
+.login-container {
+    padding: 10% 30% 10% 30%;
+    border: 1px solid red;
+    text-align: center !important;
+}
+
+/*.login1 {
+    margin: 15%
+}*/

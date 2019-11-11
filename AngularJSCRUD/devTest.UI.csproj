@@ -120,6 +120,7 @@
     <Content Include="App\Templates\Home\Home.html" />
     <Content Include="App\Templates\LoginForms\LoginForms.html" />
     <Content Include="App\Templates\Users\Create.html" />
+    <Content Include="Content\all.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.min.css" />
