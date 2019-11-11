@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using domain = devTest.Domain.Modules.Hotel.Entities;
+using domain = devTest.Domain.Modules.HotelAggregate.Entities;
 
 
 namespace devTest.Application.Dto.Converters
@@ -46,7 +46,6 @@ namespace devTest.Application.Dto.Converters
             }
 
             return hotelDtos;
-
         }
 
         private List<RateDto> GetRates(IEnumerable<domain.Rate> rates)

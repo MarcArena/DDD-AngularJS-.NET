@@ -4,7 +4,7 @@ using devTest.Application.Hotel.Dto;
 using devTest.Application.Hotel.Query;
 using devTest.Application.Hotel.QueryResult;
 using devTest.Application.Messaging;
-using devTest.Domain.Modules.Hotel.Repositories;
+using devTest.Domain.Modules.HotelAggregate.Repositories;
 
 using System.Collections.Generic;
 using System.Linq;

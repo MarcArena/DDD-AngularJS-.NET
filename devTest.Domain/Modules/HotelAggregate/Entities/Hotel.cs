@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace devTest.Domain.Modules.Hotel.Entities
+namespace devTest.Domain.Modules.HotelAggregate.Entities
 {
     public enum RateTypes { PerNight, Stay };
 

@@ -44,7 +44,11 @@
     <Compile Include="Base\IDtoTranslatable.cs" />
     <Compile Include="Base\IQuery.cs" />
     <Compile Include="Base\IQueryResult.cs" />
+    <Compile Include="Converters\GifConverter.cs" />
     <Compile Include="Converters\HotelConverter.cs" />
+    <Compile Include="Gif\Dto\GifDto.cs" />
+    <Compile Include="Gif\QueryResult\GifsBySearchStringQueryResult.cs" />
+    <Compile Include="Gif\Query\GifsBySearchStringQuery.cs" />
     <Compile Include="Hotel\Dto\HotelDto.cs" />
     <Compile Include="Hotel\QueryResult\HotelsByDestinationAndNightsQueryResult.cs" />
     <Compile Include="Hotel\Query\HotelsByDestinationAndNightsQuery.cs" />

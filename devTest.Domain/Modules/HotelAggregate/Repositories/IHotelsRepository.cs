@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using domain = devTest.Domain.Modules.Hotel.Entities;
+using domain = devTest.Domain.Modules.HotelAggregate.Entities;
 
-namespace devTest.Domain.Modules.Hotel.Repositories
+namespace devTest.Domain.Modules.HotelAggregate.Repositories
 {
     public interface IHotelsRepository
     {

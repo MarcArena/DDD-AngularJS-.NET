@@ -1,14 +1,14 @@
 ﻿using devTest.CrossCutting.Cache;
 using devTest.Data.Base;
 using devTest.Data.Dtos;
-using devTest.Domain.Modules.Hotel.Repositories;
+using devTest.Domain.Modules.HotelAggregate.Repositories;
 
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 
-using domain = devTest.Domain.Modules.Hotel.Entities;
+using domain = devTest.Domain.Modules.HotelAggregate.Entities;
 
 namespace devTest.Data.Repositories
 {

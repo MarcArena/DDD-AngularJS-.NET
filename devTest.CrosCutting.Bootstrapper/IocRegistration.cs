@@ -3,7 +3,8 @@ using devTest.CrossCutting.Cache;
 using devTest.CrossCutting.Ioc;
 using devTest.Data.Base;
 using devTest.Data.Repositories;
-using devTest.Domain.Modules.Hotel.Repositories;
+using devTest.Domain.Modules.GifAggregate.Repositories;
+using devTest.Domain.Modules.HotelAggregate.Repositories;
 
 namespace devTest.CrossCutting.Bootstrapper
 {
@@ -14,6 +15,7 @@ namespace devTest.CrossCutting.Bootstrapper
             container.RegisterInstance<IIocContainer>(container);
             container.Register<IQueryDispatcher, QueryDispatcher>(LifetimeManagerEnum.ContainerControlled);
             container.Register<IHotelsRepository, HotelsRepository>(LifetimeManagerEnum.PerResolve);
+            container.Register<IGifRepository, GifRepository>(LifetimeManagerEnum.PerResolve);
             container.Register<IWebApiService, WebApiService>(LifetimeManagerEnum.PerResolve);
             container.Register<ICache, devTest.CrossCutting.Cache.Cache>(LifetimeManagerEnum.PerResolve);
 

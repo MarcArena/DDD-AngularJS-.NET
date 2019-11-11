@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\Gifs\QueryHandlers\GifsBySearchStringQueryHandler.cs" />
     <Compile Include="Modules\Hotels\QueryHandlers\HotelsByDestinationAndNightsQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,6 +52,10 @@
     <ProjectReference Include="..\devTest.Application.Core\devTest.Application.Core.csproj">
       <Project>{39534DE9-B96E-4728-B254-9FEC5FAFEEBE}</Project>
       <Name>devTest.Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\devTest.Application.DtoConverter\devTest.Application.DtoConverter.csproj">
+      <Project>{E42CC49C-F613-42B4-ADFE-5C82AB5352C6}</Project>
+      <Name>devTest.Application.DtoConverter</Name>
     </ProjectReference>
     <ProjectReference Include="..\devTest.Application.Dto\devTest.Application.Dto.csproj">
       <Project>{39E8063C-F1E6-4E33-B6AF-F5667CC8E935}</Project>
