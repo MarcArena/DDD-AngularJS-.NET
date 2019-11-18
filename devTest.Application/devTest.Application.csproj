@@ -33,6 +33,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Device.Portable, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3f6d3f5f65b761a0, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Device.Location.Portable.1.0.0\lib\System.Device.Portable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,9 +46,12 @@
   <ItemGroup>
     <Compile Include="Modules\Airports\QueryHanlders\AirportsBySearchStringQueryHandler.cs" />
     <Compile Include="Modules\Airports\QueryHanlders\AllAirportsQueryHandler.cs" />
+    <Compile Include="Modules\Airports\QueryHanlders\CalculateDistanceBetweenAirportsQueryHandler.cs" />
     <Compile Include="Modules\Gifs\QueryHandlers\GifsBySearchStringQueryHandler.cs" />
     <Compile Include="Modules\Hotels\QueryHandlers\HotelsByDestinationAndNightsQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AirportsService.cs" />
+    <Compile Include="Services\IAirportsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\" />
@@ -74,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

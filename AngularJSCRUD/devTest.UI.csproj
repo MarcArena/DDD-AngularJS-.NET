@@ -116,6 +116,7 @@
     <Content Include="App\App.js" />
     <Content Include="App\Controllers\Hotel\hotelsController.js" />
     <Content Include="App\Controllers\LoginForms\loginFormsController.js" />
+    <Content Include="App\Services\AirportsService.js" />
     <Content Include="App\Services\CalculationsService.js" />
     <Content Include="App\Services\hotelsService.js" />
     <Content Include="App\Templates\Home\Home.html" />

@@ -11,7 +11,7 @@ namespace devTest.CrossCutting.Cache
         {
             return (T)_cache[key];
         }
-
+               
         public void Set<T>(string key, T value, TimeSpan? timeSpan = null)
         {
             if (timeSpan == null)

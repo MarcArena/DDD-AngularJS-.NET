@@ -1,5 +1,7 @@
 ﻿using devTest.Application.Dto.Airport.Dto;
+using devTest.Application.Dto.Airport.QueryResult;
 using devTest.Application.Dto.Base;
+using System;
 using System.Collections.Generic;
 using domain = devTest.Domain.Modules.AirportAggregate.Entities;
 namespace devTest.Application.DtoConverter.Modules.AirportAggregate
@@ -32,6 +34,23 @@ namespace devTest.Application.DtoConverter.Modules.AirportAggregate
 
             return dtos;
 
+        }
+
+        public IEnumerable<DistanceDto> ToDistanceDto(List<domain.Distance> distances)
+        {
+            var dtos = new List<DistanceDto>();
+
+            foreach (var d in distances)
+            {
+                dtos.Add(new DistanceDto()
+                {
+                    OriginAirport = d.OriginAirport,
+                    DestinationAirport = d.DistinationAirport,
+                    DistanceInKM = d.DistanceInKM
+                });
+            }
+
+            return dtos;
         }
     }
 }

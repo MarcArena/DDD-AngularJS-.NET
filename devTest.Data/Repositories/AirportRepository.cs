@@ -50,7 +50,12 @@ namespace devTest.Data.Repositories
             var airports = _cache.Get<IEnumerable<domain.Airport>>($"AirportsBySearchString[{searchString}]");
 
             if (airports == null)
-                airports.Where(a => a.Name.Contains(searchString) || a.Id.Contains(searchString));
+            {
+                airports = All().Where(a => a.Name.Contains(searchString) || a.Id.Contains(searchString));
+
+                if (airports != null && airports.Any())                
+                    _cache.Set($"AirportsBySearchString[{searchString}]", airports);           
+            }
 
             return airports;
         }

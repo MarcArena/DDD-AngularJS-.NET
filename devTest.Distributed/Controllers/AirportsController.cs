@@ -16,6 +16,7 @@ namespace devTest.Distributed.Controllers
             _queryDispatcher = queryDispatcher;
         }
 
+        [HttpGet]
         public HttpResponseMessage Get()
         {
             var query = new AllAirportsQuery { };
@@ -26,6 +27,8 @@ namespace devTest.Distributed.Controllers
 
             return okResponse;
         }
+
+        [HttpGet]
         [ActionName("GetAirportsBySearchString")]
         public HttpResponseMessage GetAirportsBySearchString(string searchString)
         {
@@ -37,5 +40,21 @@ namespace devTest.Distributed.Controllers
 
             return okResponse;
         }
+
+
+        //Distance in KM Between 2 airports
+        [HttpGet]
+        [ActionName("CalculateDistanceBetweenAirportsInKM")]
+        public HttpResponseMessage CalculateDistanceBetweenAirportsInKM(string airport1, string airport2)
+        {
+            var query = new CalculateDistanceBetweenAirportsQuery { Airport1 = airport1, Airport2 = airport2 };
+
+            var queryResponse = _queryDispatcher.Dispatch<CalculateDistanceBetweenAirportsQuery, CalculateDistanceBetweenAirportsQueryResult>(query);
+
+            var okResponse = this.Request.CreateResponse(HttpStatusCode.OK, queryResponse);
+
+            return okResponse;
+        }
+
     }
 }

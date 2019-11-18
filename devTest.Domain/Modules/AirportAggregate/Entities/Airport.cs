@@ -13,4 +13,11 @@ namespace devTest.Domain.Modules.AirportAggregate.Entities
         public string Longitude { get; set; }
         public string Id { get; set; }
     }
+
+    public class Distance
+    {
+        public double DistanceInKM { get; set; }
+        public string OriginAirport { get; set; }
+        public string DistinationAirport { get; set; }
+    }
 }

@@ -13,3 +13,23 @@
         </div>
     </div>
 </div>
+
+<div class="row tile-container">
+    <div class="col-sm-6 tile" ng-repeat="air in airports">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{air.Name}}</h5>
+                <p class="card-text">{{air.Id}}</p>
+                <div>
+                    <a style="margin-left: 0% !important" href="#/{{tile.Url}}" class="btn btn-primary">{{tile.Name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button ng-click="getDistance()">CALCULATE!</button>
+
+<p ng-show="!calculating">
+   Distance between {{a1.Name}} and {{a2.Name}} {{distance | number: 3}} KM
+</p>

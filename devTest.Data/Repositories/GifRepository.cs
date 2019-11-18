@@ -4,7 +4,7 @@ using devTest.Data.Base;
 using devTest.Data.Dtos;
 using devTest.Domain.Modules.GifAggregate.Entities;
 using devTest.Domain.Modules.GifAggregate.Repositories;
-
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -58,25 +58,34 @@ namespace devTest.Data.Repositories
             {
                 foreach (var r in result.data)
                 {
-                    var gifToAdd = new domain.Gif()
+                    if (CheckValidTitle(r.title) && CheckValidMp4(r.images.fixed_height.mp4))
                     {
-                        id = r.id,
-                        url = r.url,
-                        title = r.title,
-                        mp4 = r.images.fixed_height.mp4
-                    };
+                        var gifToAdd = new domain.Gif()
+                        {
+                            id = r.id,
+                            url = r.url,
+                            title = r.title,
+                            mp4 = r.images.fixed_height.mp4
+                        };
 
-                    //foreach (var image in r.images)
-                    //{
-                    //    //if (image != null)
-                    //       // gifToAdd.AddImage(image.fixed_height.mp4);
-                    //}
+                        if (!gifs.Contains(gifToAdd))
+                            gifs.Add(gifToAdd);
 
-                    gifs.Add(gifToAdd);
+                    }
                 }
             }
 
             return gifs;
+        }
+
+        private bool CheckValidMp4(string mp4)
+        {
+            return mp4 != string.Empty;
+        }
+
+        private bool CheckValidTitle(string title)
+        {
+            return title != string.Empty && title != " ";
         }
     }
 }

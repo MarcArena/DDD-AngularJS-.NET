@@ -1,5 +1,5 @@
 ﻿angular.module('myFormApp')
-    .factory('CalculationsService', ['$http', function ($http) {
+    .factory('calculationsService', ['$http', function ($http) {
 
         var devTestEntryPoint = 'http://localhost:51558/';
 
@@ -17,7 +17,11 @@
              * @param lng2 Longitude of the point B
  */
 
-        dataFactory.getDistanceBetweenPoints = function (lat1, lng1, lat2, lng2) {
+        function degreesToRadians(x) {
+            return x * Math.PI / 180;
+        };
+
+        function getDistance(lat1, lng1, lat2, lng2) {
             let R = 6378137;
             let dLat = degreesToRadians(lat2 - lat1);
             let dLong = degreesToRadians(lng2 - lng1);
@@ -37,6 +41,24 @@
             let distance = R * c;
 
             return distance;
+        }
+
+        function getDistanceV2(lat1, lng1, lat2, lng2) {
+            var p = 0.017453292519943295;    // Math.PI / 180
+            var c = Math.cos;
+            var a = 0.5 - c((lat2 - lat1) * p) / 2 +
+                c(lat1 * p) * c(lat2 * p) *
+            (1 - c((lng2 - lng1) * p)) / 2;
+
+            return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+        }
+
+        dataFactory.getDistanceBetweenPointsInMeters = function (lat1, lng1, lat2, lng2) {
+            return getDistance(lat1, lng1, lat2, lng2);
+        };
+
+        dataFactory.getDistanceBetweenPointsInKilometers = function (lat1, lng1, lat2, lng2) {
+            return getDistanceV2(lat1, lng1, lat2, lng2);
         };
 
         return dataFactory;
