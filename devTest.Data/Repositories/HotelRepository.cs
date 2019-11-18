@@ -1,4 +1,5 @@
-﻿using devTest.CrossCutting.Cache;
+﻿
+using devTest.CrossCutting.Cache;
 using devTest.Data.Base;
 using devTest.Data.Dtos;
 using devTest.Domain.Modules.HotelAggregate.Repositories;

@@ -113,7 +113,7 @@
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Cache\Cache.cs" />
-    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Cache\ICachem.cs" />
     <Compile Include="Ioc\IIocContainer.cs" />
     <Compile Include="Ioc\UnityIocContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

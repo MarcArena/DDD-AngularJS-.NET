@@ -50,9 +50,11 @@
   <ItemGroup>
     <Compile Include="Base\IWebApiService.cs" />
     <Compile Include="Base\WebApiService.cs" />
+    <Compile Include="Dtos\AirportDto.cs" />
     <Compile Include="Dtos\GifDto.cs" />
     <Compile Include="Dtos\HotelDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AirportRepository.cs" />
     <Compile Include="Repositories\GifRepository.cs" />
     <Compile Include="Repositories\HotelRepository.cs" />
   </ItemGroup>

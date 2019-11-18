@@ -78,6 +78,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\AirportAggregate\AirportConverter.cs" />
     <Compile Include="Modules\GifAggregate\GifConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
