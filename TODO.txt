@@ -1,0 +1,7 @@
+11/18/2019
+
+1.- Si hay más de un aerpuerto en una ciudad, mostrar la distancia entre estos dos.
+
+2.- Dado un aeropuerto, mostrar lista de aeropuertos a nKm de distancia.
+
+3.- Obtener Currencies de la API de skyscanner.

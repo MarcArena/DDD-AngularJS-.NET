@@ -9,6 +9,6 @@ namespace devTest.Application.Services
 {
     public interface IAirportsService
     {
-        IEnumerable<Distance> CalculateDistanceBetweenAirports(Airport airport1, Airport airport2);
+        Distance CalculateDistanceBetweenAirports(Airport airport1, Airport airport2);
     }
 }

@@ -18,54 +18,42 @@ namespace devTest.Application.Services
             _cache = cache;
         }
 
-        public IEnumerable<Distance> CalculateDistanceBetweenAirports(Airport airport1, Airport airport2)
+        public Distance CalculateDistanceBetweenAirports(Airport originAirport, Airport destinationAirport)
         {
-            List<Distance> result = _cache.Get<IEnumerable<Distance>>($"AirportDistance[{airport1.Name}, {airport2.Name}]")?.ToList();
+            var result = _cache.Get<Distance>($"AirportDistance[{originAirport.Name}, {destinationAirport.Name}]");
 
-            if (result == null || !result.Any())
-                result = _cache.Get<IEnumerable<Distance>>($"AirportDistance[{airport2.Name}, {airport1.Name}]").ToList();
+            if (result == null)
+                result = _cache.Get<Distance>($"AirportDistance[{destinationAirport.Name}, {originAirport.Name}]");
 
-            if (result == null || !result.Any())
+            if (result == null)
             {
+                var originAirportCoordinates = new GeoCoordinate()
+                {
+                    Longitude = Convert.ToDouble(originAirport.Longitude),
+                    Latitude = Convert.ToDouble(originAirport.Latitude)
+                };
 
-                foreach (var r in result)
-                {                   
-                    var coordinates1 = new GeoCoordinate() {
-                        Longitude = Convert.ToDouble(airport1.Longitude.Replace('.', ',')),
-                        Latitude = Convert.ToDouble(airport1.Latitude.Replace('.', ','))
-                    };
+                var destinationAirportCoordinates = new GeoCoordinate()
+                {
+                    Longitude = Convert.ToDouble(destinationAirport.Longitude),
+                    Latitude = Convert.ToDouble(destinationAirport.Latitude)
+                };
 
-                    var coordinates2 = new GeoCoordinate() {
-                        Longitude = Convert.ToDouble(airport2.Longitude.Replace('.', ',')),
-                        Latitude = Convert.ToDouble(airport2.Latitude.Replace('.', ','))
-                    };
+                var distanceInKm = Math.Round(originAirportCoordinates.GetDistanceTo(destinationAirportCoordinates) / 1000, 3);
 
-                    var distance = coordinates1.GetDistanceTo(coordinates2) / 1000;
-                }
+                result = new Distance() {
+                    OriginAirport = originAirport.Name,
+                    DestinationAirport = destinationAirport.Name,
+                    DistanceInKM = distanceInKm
+                };
 
-                if (result != null && result.Any())
-                    _cache.Set($"AirportDistance[{airport1.Name}, {airport2.Name}]", result );
+                if (result != null)
+                    _cache.Set($"AirportDistance[{originAirport.Name}, {destinationAirport.Name}]", result);
 
             }
 
             return result;
         }
-
-        //double p = 0.017453292519943295;
-
-        //double lat1 = Convert.ToDouble(airport1.Latitude.Replace('.', ','));
-        //double lat2 = Convert.ToDouble(airport2.Latitude.Replace('.', ','));
-
-        //double lng1 = Convert.ToDouble(airport1.Longitude.Replace('.', ','));
-        //double lng2 = Convert.ToDouble(airport2.Longitude.Replace('.', ','));
-
-        //double a = 0.5 - Math.Cos((lat1 - lat2) * p) / 2 +
-        //    Math.Cos(lat1 * p) * Math.Cos(lat2 * p) *
-        //    (1 - Math.Cos((lng2 - lng1) * p)) / 2;
-
-        //var distance = Math.Round(12742 * Math.Asin(Math.Sqrt(a)), 3);
-
-        //result.Add(new Distance() { OriginAirport = airport1.Name, DistanceInKM = distance, DistinationAirport = airport2.Name });
 
     }
 }

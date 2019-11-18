@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modules\AirportAggregate\Entities\Airport.cs" />
+    <Compile Include="Modules\AirportAggregate\Entities\City.cs" />
     <Compile Include="Modules\AirportAggregate\Repositories\IAirportRepository.cs" />
     <Compile Include="Modules\GifAggregate\Entities\Gif.cs" />
     <Compile Include="Modules\GifAggregate\Repositories\IGifRepository.cs" />

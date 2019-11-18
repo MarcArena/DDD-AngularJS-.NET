@@ -26,7 +26,7 @@ namespace devTest.Application.Modules.Airports.QueryHanlders
         {
             var result = new AirportsBySearchStringQueryResult();
 
-            var airports = _airportRepository.GetAirportsBySearchString(query.SearchString);
+            var airports = _airportRepository.GetAirportsBySearchString(query.SearchString)?.ToList();
 
             if (airports != null && airports.Any())
                 result.Airports = AirportConverter.Instance.ToDto(airports).Where(h => h.Name != string.Empty);

@@ -4,6 +4,7 @@ using devTest.Application.Dto.Airport.Query;
 using devTest.Application.Dto.Airport.QueryResult;
 using devTest.Application.DtoConverter.Modules.AirportAggregate;
 using devTest.Application.Messaging;
+using devTest.Domain.Modules.AirportAggregate.Entities;
 using devTest.Domain.Modules.AirportAggregate.Repositories;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,25 @@ namespace devTest.Application.Modules.Airports.QueryHanlders
         {
             var result = new AllAirportsQueryResult();
 
-            var airports = _airportRepository.All();
+            var cities = _airportRepository.All();
 
-            if (airports != null && airports.Any())
-                result.Airports = AirportConverter.Instance.ToDto(airports).Where(h => h.Name != string.Empty);
+            var airportDtos = new List<AirportDto>();
+
+            foreach (var c in cities)
+            {
+                foreach (var a in c.Airports)
+                {
+                    airportDtos.Add(AirportConverter.Instance.ToAirportDto(a));
+                }
+            }
+
+            //var a = airports.Select(c => c.Airports.Select(x => x));
+
+            if (airportDtos != null && airportDtos.Any())
+            {
+                result.Airports = airportDtos;
+                result.TotalResult = airportDtos.Count();
+            }
             else
                 result.Airports = new List<AirportDto>();
 

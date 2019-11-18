@@ -21,6 +21,69 @@ namespace devTest.Application.DtoConverter.Modules.AirportAggregate
         {
             var dtos = new List<AirportDto>();
 
+            //foreach (var c in cities)
+            //{
+            foreach (var a in airports)
+            {
+                dtos.Add(new AirportDto()
+                {
+                    Name = a.Name,
+                    Longitude = a.Longitude,
+                    Latitude = a.Latitude,
+                    Id = a.Id,
+                    CityName = a.CityName
+                });
+            }
+            //}
+
+            return dtos;
+
+        }
+
+        public IEnumerable<AirportDto> ToAllDto(IEnumerable<domain.Airport> airports)
+        {
+            var dtos = new List<AirportDto>();
+
+            foreach (var a in airports)
+            {
+                dtos.Add(new AirportDto()
+                {
+                    Name = a.Name,
+                    Longitude = a.Longitude,
+                    Latitude = a.Latitude,
+                    Id = a.Id
+                });
+
+                //foreach (var a in c.Airports)
+                //{
+                //    dtos.Add(new AirportDto()
+                //    {
+                //        Name = a.Name,
+                //        Longitude = a.Longitude,
+                //        Latitude = a.Latitude,
+                //        Id = a.Id
+                //    });
+                //}
+            };
+
+            return dtos;
+        }
+
+        public AirportDto ToAirportDto(domain.Airport a)
+        {
+            return new AirportDto()
+            {
+                Name = a.Name,
+                Latitude = a.Latitude,
+                Longitude = a.Longitude,
+                Id = a.Id
+            };
+        }
+
+        public List<AirportDto> GetAirports(IEnumerable<domain.Airport> airports)
+        {
+            var dtos = new List<AirportDto>();
+
             foreach (var a in airports)
             {
                 dtos.Add(new AirportDto()
@@ -33,24 +96,16 @@ namespace devTest.Application.DtoConverter.Modules.AirportAggregate
             }
 
             return dtos;
-
         }
 
-        public IEnumerable<DistanceDto> ToDistanceDto(List<domain.Distance> distances)
+        public DistanceDto ToDistanceDto(domain.Distance d)
         {
-            var dtos = new List<DistanceDto>();
-
-            foreach (var d in distances)
+            return new DistanceDto()
             {
-                dtos.Add(new DistanceDto()
-                {
-                    OriginAirport = d.OriginAirport,
-                    DestinationAirport = d.DistinationAirport,
-                    DistanceInKM = d.DistanceInKM
-                });
-            }
-
-            return dtos;
+                OriginAirport = d.OriginAirport,
+                DestinationAirport = d.DestinationAirport,
+                DistanceInKM = d.DistanceInKM
+            };
         }
     }
 }

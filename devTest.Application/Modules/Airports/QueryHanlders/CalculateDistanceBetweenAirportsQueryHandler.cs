@@ -9,8 +9,6 @@ using devTest.Domain.Modules.AirportAggregate.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace devTest.Application.Modules.Airports.QueryHanlders
 {
@@ -29,15 +27,41 @@ namespace devTest.Application.Modules.Airports.QueryHanlders
         {
             var result = new CalculateDistanceBetweenAirportsQueryResult();
 
-            var airport1 = _airportRepository.GetAirportsBySearchString(query.Airport1)?.First();
-            var airport2 = _airportRepository.GetAirportsBySearchString(query.Airport2)?.First();
+            var distancesToSet = new List<DistanceDto>();
 
-            if (CheckAirports(airport1, airport2, query.Airport1, query.Airport2))
-                result.Distances = AirportConverter.Instance.ToDistanceDto(_airportsService.CalculateDistanceBetweenAirports(airport1, airport2).ToList());
-            else
-                result.Distances = null;
+            var originAirports = _airportRepository.GetAirportsBySearchString(query.Airport1);
+            var destinationAirports = _airportRepository.GetAirportsBySearchString(query.Airport2);
+
+            if (CheckAirports(originAirports, destinationAirports))
+            {
+                foreach (var origin in originAirports)
+                {
+                    foreach (var destination in destinationAirports)
+                    {
+                        var distance = _airportsService.CalculateDistanceBetweenAirports(origin, destination);
+
+                        distancesToSet.Add(AirportConverter.Instance.ToDistanceDto(distance));
+                    }
+                }
+
+            }
+
+            result.Distances = distancesToSet;
 
             return result;
+        }
+
+        private bool CheckAirports(IEnumerable<Airport> originAirports, IEnumerable<Airport> destinationAirports)
+        {
+            var ok = true;
+
+            if (originAirports == null || !originAirports.Any())
+                throw new Exception("Origin Airport not found.");
+
+            if (destinationAirports == null || !destinationAirports.Any())
+                throw new Exception("Origin Airport not found.");
+            
+            return ok;
         }
 
         private bool CheckAirports(Airport airport1, Airport airport2, string searchString1, string searchString2)
@@ -50,6 +74,6 @@ namespace devTest.Application.Modules.Airports.QueryHanlders
 
             return true;
         }
-                               
+
     }
 }
