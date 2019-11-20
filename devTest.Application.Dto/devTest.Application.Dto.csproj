@@ -46,9 +46,11 @@
     <Compile Include="Airport\QueryResult\AllAirportsQueryResult.cs" />
     <Compile Include="Airport\Dto\AirportDto.cs" />
     <Compile Include="Airport\QueryResult\CalculateDistanceBetweenAirportsQueryResult.cs" />
+    <Compile Include="Airport\QueryResult\GetNearestAirportsQueryResult.cs" />
     <Compile Include="Airport\Query\AirportsBySearchStringQuery.cs" />
     <Compile Include="Airport\Query\AllAirportsQuery.cs" />
     <Compile Include="Airport\Query\CalculateDistanceBetweenAirportsQuery.cs" />
+    <Compile Include="Airport\Query\GetNearestAirportsQuery.cs" />
     <Compile Include="Base\ICommand.cs" />
     <Compile Include="Base\IDtoTranslatable.cs" />
     <Compile Include="Base\IQuery.cs" />

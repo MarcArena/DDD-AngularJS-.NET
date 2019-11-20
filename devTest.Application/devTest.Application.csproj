@@ -47,6 +47,7 @@
     <Compile Include="Modules\Airports\QueryHanlders\AirportsBySearchStringQueryHandler.cs" />
     <Compile Include="Modules\Airports\QueryHanlders\AllAirportsQueryHandler.cs" />
     <Compile Include="Modules\Airports\QueryHanlders\CalculateDistanceBetweenAirportsQueryHandler.cs" />
+    <Compile Include="Modules\Airports\QueryHanlders\GetNearestAirportsQueryHandler.cs" />
     <Compile Include="Modules\Gifs\QueryHandlers\GifsBySearchStringQueryHandler.cs" />
     <Compile Include="Modules\Hotels\QueryHandlers\HotelsByDestinationAndNightsQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

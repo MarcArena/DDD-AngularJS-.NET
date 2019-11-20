@@ -98,9 +98,9 @@ namespace devTest.Application.DtoConverter.Modules.AirportAggregate
             return dtos;
         }
 
-        public DistanceDto ToDistanceDto(domain.Distance d)
+        public DistanceBetweenAirportsDto ToDistanceDto(domain.Distance d)
         {
-            return new DistanceDto()
+            return new DistanceBetweenAirportsDto()
             {
                 OriginAirport = d.OriginAirport,
                 DestinationAirport = d.DestinationAirport,

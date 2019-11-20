@@ -24,6 +24,7 @@ namespace devTest.Domain.Modules.AirportAggregate.Entities
         public string CityId { get; set; }
         public string CountryId { get; set; }
         public string CityName { get; set; }
+        public double DistanceFromCurrentLocation { get; set; }
     }
 
     public class Distance

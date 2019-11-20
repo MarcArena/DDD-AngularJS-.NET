@@ -6,5 +6,6 @@ namespace devTest.Domain.Modules.AirportAggregate.Repositories
     {
         IEnumerable<domain.City> All();
         IEnumerable<domain.Airport> GetAirportsBySearchString(string searchString);
+        //IEnumerable<domain.Airport> GetNearestAirports(string currentLatitude, string currentLongitude);
     }
 }

@@ -27,7 +27,7 @@ namespace devTest.Application.Modules.Airports.QueryHanlders
         {
             var result = new CalculateDistanceBetweenAirportsQueryResult();
 
-            var distancesToSet = new List<DistanceDto>();
+            var distancesToSet = new List<DistanceBetweenAirportsDto>();
 
             var originAirports = _airportRepository.GetAirportsBySearchString(query.Airport1);
             var destinationAirports = _airportRepository.GetAirportsBySearchString(query.Airport2);

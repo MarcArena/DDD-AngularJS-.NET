@@ -100,28 +100,11 @@ namespace devTest.Data.Repositories
 
                             res.Add(newCity);
                         }
-
-                        //foreach (var city in country.Cities)
-                        //{
-                        //    foreach (var airport in city.Airports)
-                        //    {
-                        //        var location = airport.Location.Split(',');
-
-                        //        airports.Add(new domain.Airport()
-                        //        {
-                        //            Name = airport.Name,
-                        //            Latitude = location[1],
-                        //            Longitude = location[0],
-                        //            Id = airport.Id
-                        //        });
-                        //    }
-                        //}
                     }
                 }
             }
 
             return res;
         }
-
     }
 }

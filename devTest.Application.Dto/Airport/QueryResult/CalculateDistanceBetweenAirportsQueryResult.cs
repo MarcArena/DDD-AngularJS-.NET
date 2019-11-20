@@ -9,10 +9,10 @@ namespace devTest.Application.Dto.Airport.QueryResult
 {
     public class CalculateDistanceBetweenAirportsQueryResult : IQueryResult
     {
-        public IEnumerable<DistanceDto> Distances { get; set; }
+        public IEnumerable<DistanceBetweenAirportsDto> Distances { get; set; }
     }
 
-    public class DistanceDto
+    public class DistanceBetweenAirportsDto
     {
         public string OriginAirport { get; set; }
         public string DestinationAirport { get; set; }

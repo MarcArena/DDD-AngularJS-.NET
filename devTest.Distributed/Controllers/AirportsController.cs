@@ -40,9 +40,7 @@ namespace devTest.Distributed.Controllers
 
             return okResponse;
         }
-
-
-        //Distance in KM Between 2 airports
+       
         [HttpGet]
         [ActionName("CalculateDistanceBetweenAirportsInKM")]
         public HttpResponseMessage CalculateDistanceBetweenAirportsInKM(string airport1, string airport2)
@@ -50,6 +48,19 @@ namespace devTest.Distributed.Controllers
             var query = new CalculateDistanceBetweenAirportsQuery { Airport1 = airport1, Airport2 = airport2 };
 
             var queryResponse = _queryDispatcher.Dispatch<CalculateDistanceBetweenAirportsQuery, CalculateDistanceBetweenAirportsQueryResult>(query);
+
+            var okResponse = this.Request.CreateResponse(HttpStatusCode.OK, queryResponse);
+
+            return okResponse;
+        }
+
+        [HttpGet]
+        [ActionName("GetNearestAirports")]
+        public HttpResponseMessage GetNearestAirports(string currentLatitude, string currentLongitude)
+        {
+            var query = new GetNearestAirportsQuery { CurrentLatitude = currentLatitude, CurrentLongitude = currentLongitude };
+
+            var queryResponse = _queryDispatcher.Dispatch<GetNearestAirportsQuery, GetNearestAirportsQueryResult>(query);
 
             var okResponse = this.Request.CreateResponse(HttpStatusCode.OK, queryResponse);
 
